@@ -1,11 +1,36 @@
 {
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "plugins": ["react", "@typescript-eslint", "@tanstack/query"],
   "extends": [
     "next/core-web-vitals",
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:@typescript-eslint/recommended",
     "plugin:@tanstack/eslint-plugin-query/recommended"
   ],
-  "plugins": ["@tanstack/query"],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
   "rules": {
+    "react/react-in-jsx-scope": "off",
+    "react-hooks/exhaustive-deps": "off",
+    "prefer-const": "warn",
+    "@typescript-eslint/no-unused-vars": "error",
+    "@typescript-eslint/no-explicit-any": "error",
+    "@typescript-eslint/no-non-null-asserted-optional-chain": "warn",
     "@tanstack/query/exhaustive-deps": "error",
-    "@tanstack/query/prefer-query-object-syntax": "error"
+    "@tanstack/query/prefer-query-object-syntax": "error",
+
+    "linebreak-style": "off",
+    "import/no-anonymous-default-export": "off",
+    "react/prop-types": "off"
   }
 }
