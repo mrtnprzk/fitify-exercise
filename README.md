@@ -1,38 +1,47 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# FITIFY :weight_lifting_man: :lotus_position_woman:
 
 ## Getting Started
 
-First, run the development server:
+### Starting a local server
+
+You need `node` (preferably the latest LTS version) and install node_modules:
+
+```bash
+npm install
+```
+
+then run:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The application should automatically reload and show any changes made in the `src` folder.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+### Check any lint errors in terminal
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+```bash
+npm run lint
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+---------------------------------------------------------------------------
+## Fitify Sample Project
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Your task is to create a simple web app in React.js that will help users learn new exercises with a proper technique.
 
-## Learn More
+The app should present the list combining all exercises from our database. The exercise database consists of several exercise packs available via JSON REST API. You should first fetch the manifest containing all available exercise packs, then fetch the content of all exercise packs and merge them into a single list.
 
-To learn more about Next.js, take a look at the following resources:
+The user should be able to search in the exercise database by typing the exercise title in the search field. The app should update the results as the user types. The part of the title matching the query should be highlighted in the results using a bold font style.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The user should be able to click on any exercise item to show the exercise preview dialog. The dialog should contain the exercise video and instructions. The IDs of the instruction strings are defined in the instructions.hints field of the exercise object. You should use the provided instructions.json file to resolve the string content based on its ID.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### [Figma Design](https://www.figma.com/file/eSxkikHtvXrD3aMFAQdzPr/Fitify-Sample-Project-Frontend---Exercise-List?node-id=1%3A82)
 
-## Deploy on Vercel
+### Exercise API
+- Returns the list of exercise packs https://static.gofitify.com/exercises/manifest_v6.json
+- Returns the list of exercises in the exercise pack with the specified code https://static.gofitify.com/exercises/[pack_code]/exercises_[pack_code]_v5.json
+- The exercise thumbnail https://static.gofitify.com/exercises/[pack_code]/thumbnails/[exercise_code].jpg
+- The exercise video https://static.gofitify.com/exercises/[pack_code]/videos/[exercise_code].mp4
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### [Instruction Strings](https://drive.google.com/file/d/1p1hiCxq_M9NGLroPT38B0AhHCy1PzC5U/view?usp=sharing)
