@@ -2,11 +2,13 @@ import { useExercisePacks } from "@/hooks/useExercisePacks";
 import FitifyLogo from "@/components/FitifyLogo";
 import ExercisePack from "@/components/ExercisePack";
 import FitifyLoader from "@/components/FitifyLoader";
+import { useRouter } from "next/router";
 
 export default function Home() {
     const { data, isLoading, isError } = useExercisePacks();
+    const router = useRouter();
 
-    if (isError) return <div>ERROR</div>; //TODO
+    if (!isLoading && isError) router.push("/error");
 
     return (
         <main className="flex flex-col items-center h-screen overflow-hidden px-4 py-8 gap-6 md:p-14 md:gap-11">
